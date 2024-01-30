@@ -1,22 +1,19 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 	<div id="main">
 		<div id="canvas_div">
-			<canvas id="canvas" width="800" height="800">Your browser doesnt support canvas
-				<img src="maze.png" id="slika">
+			<canvas id="canvas" width="800" height="820">Your browser doesnt support canvas
+				<img src="images/maze.png" id="slika">
 			</canvas>	
 			</div>
+			<div id="menu">
+				<button id="start" class="buttons" onclick="line()">
+			</div>
 		</div>
-		<script>
-			  window.onload = function() {
-			  const canvas = document.getElementById("canvas");
-			  const ctx = canvas.getContext("2d");
-			  const img = document.getElementById("slika");
-			  ctx.drawImage(img, 0, 0);
-			  };	
+		<script src="scripts/script.js"	>
 			  
 		</script>
 	</body>
