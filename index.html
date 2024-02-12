@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="css/style.css">
+		<title>Battle of Hannut</title>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</head>
 	<body>
 	<div id="main">
@@ -15,7 +17,8 @@
 			<canvas id="canvas2" width="800" height="840" style="z-index:1;">
 			</div>
 			<div id="menu">
-				<button id="start" class="buttons" onclick="line()">
+				<button id="start" class="buttons" onclick="line()">Start</button>
+				<button id="reset" class="buttons" onclick="reset()">Reset</button>
 			</div>
 		</div>
 		<script src="scripts/script.js"	>

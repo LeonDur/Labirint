@@ -27,10 +27,22 @@
 	width:70px;
 	border-radius:5px;
 	border-color:gray;
-	margin-left:-170px;
+	background-color:#9f9c57;
+	color:#2f2a12;
+	height:60px;
+	width:100px;
 }
 body{
 	background-image:url('../images/map.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+#start{
+	margin-left:-400px;
+	margin-right:25px;
+	font-family:Segoe UI;
+}
+
+button:disabled{
+	background-color:7f8f57
 }
