@@ -4,11 +4,19 @@
 	padding-top:20px;
 }
 #canvas{
-	
-
+	position:absolute;
+	margin-top:10px;
+}
+#canvas2{
+	position:relative;
 }
 #slika{
 	hidden:true;
+}
+
+#slika2{
+	hidden:true;
+	height:16px;
 }
 #menu{
 	margin:auto;
@@ -19,4 +27,10 @@
 	width:70px;
 	border-radius:5px;
 	border-color:gray;
+	margin-left:-170px;
+}
+body{
+	background-image:url('../images/map.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 }

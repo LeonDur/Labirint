@@ -1,9 +1,16 @@
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
+canvas2 = document.getElementById("canvas2");
+ctx2 = canvas2.getContext("2d");
 window.onload = function() {
 			  
 			  img = document.getElementById("slika");
+			  tank = document.getElementById("slika2");
+			  tankup = document.getElementById("slika3");
+			  tankleft = document.getElementById("slika4");
+			  tankright = document.getElementById("slika5");
 			  ctx.drawImage(img, 0, 0);
+			  ctx2.drawImage(tank, 389.44-tank.width/2, 0);
 			  }
 
 
@@ -18,18 +25,36 @@ function line(){
 	[282.2, 737.08], [308.76, 737.08], [308.76, 705.88], [389.44, 705.88], [389.44, 682.84], [415, 682.84], [415, 737.08], [441.66, 737.08], [441.66, 760.28], [467.12, 760.28], [467.12, 787.84],
 	[415, 787.84], [415, 810]];
 	i=0;
+		
 		 timer=setInterval(function() {
 			 draw(path[i][0],path[i][1],path[i+1][0],path[i+1][1]);
 			 i++;
-			 if(i>=path.length-1)
-				 clearInterval(timer);
+			 if(i>=path.length-1){
+				ctx2.clearRect(0, 0, canvas.width, canvas.height);
+				ctx2.drawImage(tank,415-tank.width/2,810-tank.height/2+10);
+				clearInterval(timer);
+				
+			}
+			else{
+			 ctx2.clearRect(0, 0, canvas.width, canvas.height);
+			 if(path[i][0]<path[i+1][0])
+				ctx2.drawImage(tankright,path[i][0]-tank.width/2+10,path[i][1]-tank.height/2);
+			else if(path[i][0]>path[i+1][0])
+				ctx2.drawImage(tankleft,path[i][0]-tank.width/2-10,path[i][1]-tank.height/2);
+			else if(path[i][1]>path[i+1][1])
+				ctx2.drawImage(tankup,path[i][0]-tank.width/2,path[i][1]-tank.height/2-10);
+			else
+				ctx2.drawImage(tank,path[i][0]-tank.width/2,path[i][1]-tank.height/2+10);
+			}
 		 },50);
+		 
+		 console.log("test");
 	}
 function draw( x,  y,  x1,  y1){ 
     ctx.beginPath();
     ctx.moveTo(x,y);
     ctx.lineTo(x1,y1);
     ctx.lineWidth = 8;
-    ctx.strokeStyle ="orange";
+    ctx.strokeStyle ="#836539";
 	ctx.stroke();
 }	  
