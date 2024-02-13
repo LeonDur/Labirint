@@ -4,11 +4,19 @@
 	padding-top:20px;
 }
 #canvas{
-	
-
+	position:absolute;
+	margin-top:10px;
+}
+#canvas2{
+	position:relative;
 }
 #slika{
 	hidden:true;
+}
+
+#slika2{
+	hidden:true;
+	height:16px;
 }
 #menu{
 	margin:auto;
@@ -19,4 +27,39 @@
 	width:70px;
 	border-radius:5px;
 	border-color:gray;
+	background-color:#9f9c57;
+	color:#2f2a12;
+	height:60px;
+	width:100px;
+	padding:0;
+
+
+}
+body{
+	background-image:url('../images/map.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#start{
+	margin-left:-400px;
+	margin-right:25px;
+	font-family: molot;
+	font-size:20px;
+	font-weight:62;
+}
+#reset{
+	
+	margin-right:25px;
+	font-family: molot;
+	font-size:20px;
+	font-weight:62;
+}
+
+button:disabled{
+	background-color:7f8f57
+}
+
+@font-face{
+	font-family:molot;
+	src:url(../fonts/Molot.otf)
 }
