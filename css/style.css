@@ -41,15 +41,15 @@ body{
 	background-size: cover;
 }
 #start{
-	margin-left:-500px;
-	margin-right:25px;
+	
+	margin-right:0px;
 	font-family: molot;
 	font-size:20px;
 	font-weight:62;
 }
 #reset{
-	
-	margin-right:25px;
+	margin-left: 16px;
+	margin-right:-23px;
 	font-family: molot;
 	font-size:20px;
 	font-weight:62;
@@ -66,4 +66,13 @@ button:disabled{
 
 .swal2-popup {
 	font-family: Verdana;
+}
+
+#naslov{
+	font-family: molot;
+	margin:auto;
+	text-align:center;
+	color:white;
+	font-size:50px;
+	margin-top: 20px;
 }
