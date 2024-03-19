@@ -40,10 +40,11 @@ window.onload = function() {
 			  tankleft = document.getElementById("slika4");
 			  tankright = document.getElementById("slika5");
 			  enemy= document.getElementById("slika6");
-			  
+			  enemy2= document.getElementById("slika7");
 			  ctx.drawImage(img, 0, 0);
 			  ctx2.drawImage(tank, 389.44-tank.width/2, 0);
 			  ctx2.drawImage(enemy, 379.27-enemy.width/2, 707.3-enemy.height/2+10);
+			  ctx2.drawImage(enemy2, 387-enemy2.width/2, 305-enemy2.height/2+10);
 			  sweet();
 			  
 			  }
@@ -56,6 +57,7 @@ function reset(){
 	ctx.drawImage(img, 0, 0);
 	ctx2.drawImage(tank, 389.44-tank.width/2, 0);
 	ctx2.drawImage(enemy, 379.27-enemy.width/2, 707.3-enemy.height/2+10);
+	ctx2.drawImage(enemy2, 387-enemy2.width/2, 305-enemy2.height/2+10);
 	document.getElementById("start").disabled = false;
 }
 
@@ -78,15 +80,17 @@ function line(){
 				clearInterval(timer);
 				
 			}
-			if(i==272){
+			if(i==272||i==38){
 				clearInterval(timer);
 				setTimeout(explosionAnimation,500);
 			}
-			
 			else{
 				ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
 				if(i<=272)
 					ctx2.drawImage(enemy, 379.27-enemy.width/2, 707.3-enemy.height/2+10);
+				
+				if(i<=38)
+					ctx2.drawImage(enemy2, 387-enemy2.width/2, 305-enemy2.height/2+10);
 				console.log(i);
 				if(path[i][0]<path[i+1][0]){
 					ctx2.drawImage(tankright,path[i][0]-tank.width/2+10,path[i][1]-tank.height/2+8);
@@ -102,7 +106,7 @@ function line(){
 					ctx2.drawImage(tank,path[i][0]-tank.width/2,path[i][1]-tank.height/2+18);
 				}
 			}
-		},100);
+		},80);
 		
 	}
 	function stop(i){
@@ -111,20 +115,40 @@ function line(){
 	}
 function explosionAnimation(){
 	c=0;
-	timer2=setInterval(function() {
-		if(c>=8){
-			ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
-			ctx2.drawImage(tankright,318.93-tank.width/2,707.3-tank.height/2+8);
-			clearInterval(timer2);
-			setTimeout(line,500);
-		}
-		else{
-		ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
-		ctx2.drawImage(tankright,318.93-tank.width/2,707.3-tank.height/2+8);
-		ctx2.drawImage(explosions[c],383.27-explosions[c].width/2,718-explosions[c].height/2);
-		c++;
-		}
-	},125);
+	if(i==272){
+		timer2=setInterval(function() {
+			if(c>=8){
+				ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
+				ctx2.drawImage(tankright,318.93-tank.width/2,707.3-tank.height/2+8);
+				clearInterval(timer2);
+				setTimeout(line,500);
+			}
+			else{
+				ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
+				ctx2.drawImage(tankright,318.93-tank.width/2,707.3-tank.height/2+8);
+				ctx2.drawImage(explosions[c],383.27-explosions[c].width/2,718-explosions[c].height/2);
+				c++;
+			}
+		},125);
+	}
+	if(i==38){
+		timer2=setInterval(function() {
+			if(c>=8){
+				ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
+				ctx2.drawImage(tank,389.44-tank.width/2,196.08-tank.height/2+18);
+				ctx2.drawImage(enemy, 379.27-enemy.width/2, 707.3-enemy.height/2+10);
+				clearInterval(timer2);
+				setTimeout(line,500);
+			}
+			else{
+				ctx2.clearRect(0, 0, canvas2.width*1.25, canvas2.height*1.25);
+				ctx2.drawImage(tank,389.44-tank.width/2,196.08-tank.height/2+18);
+				ctx2.drawImage(enemy, 379.27-enemy.width/2, 707.3-enemy.height/2+10);
+				ctx2.drawImage(explosions[c],389.44-explosions[c].width/2,315-explosions[c].height/2);
+				c++;
+			}
+		},125);
+	}
 }
 function draw( x,  y,  x1,  y1){ 
     
